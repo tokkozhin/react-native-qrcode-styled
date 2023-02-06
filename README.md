@@ -1,6 +1,13 @@
+![npm](https://img.shields.io/npm/v/react-native-qrcode-styled?style=flat-square)
+![npm](https://img.shields.io/npm/dt/react-native-qrcode-styled?style=flat-square)
+![github](https://img.shields.io/github/stars/tokkozhin/react-native-qrcode-styled?style=flat-square)
+![Supports Android and iOS](https://img.shields.io/badge/platforms-android%20|%20ios-lightgrey.svg?style=flat-square)
+
 # react-native-qrcode-styled
 
 Fully customizable QR Codes generator for React Native using react-native-svg
+
+![Shadows Demo](https://raw.githubusercontent.com/tokkozhin/react-native-qrcode-styled/main/example/assets/example.gif)
 
 ## Installation
 
@@ -26,7 +33,7 @@ import QRCodeStyled from 'react-native-qrcode-styled';
 />
 ```
 
-For more examples [check out the Example app](https://github.com/tokkozhin/react-native-qrcode-styled/example)
+For more examples [check out the Example app](https://github.com/tokkozhin/react-native-qrcode-styled/tree/main/example)
 
 ## Props
 
@@ -58,26 +65,6 @@ children                   | undefined       | (pieceSize: number, bitMatrix: nu
 
 ## Types
 
-### EyeOptions
-```typescript
-type EyeOptions = {
-  scale?: PathProps['scale']; // scaleXY | [scaleX, scaleY]
-  rotation?: string | number;
-  borderRadius?: BorderRadius;
-  color?: ColorValue;
-  gradient?: GradientProps;
-  stroke?: ColorValue;
-  strokeWidth?: number;
-}
-```
-
-### AllEyesOptions
-```typescript
-type EyePosition = 'topLeft' | 'topRight' | 'bottomLeft';
-
-type AllEyesOptions = { [K in EyePosition]?: EyeOptions }
-```
-
 ### GradientProps
 ```typescript
 type GradientType = 'linear' | 'radial';
@@ -100,6 +87,26 @@ type GradientProps = {
   type?: GradientType;
   options?: LinearGradientProps | RadialGradientProps;
 };
+```
+
+### EyeOptions
+```typescript
+type EyeOptions = {
+  scale?: PathProps['scale']; // scaleXY | [scaleX, scaleY]
+  rotation?: string | number;
+  borderRadius?: number | number[];
+  color?: ColorValue;
+  gradient?: GradientProps;
+  stroke?: ColorValue;
+  strokeWidth?: number;
+}
+```
+
+### AllEyesOptions
+```typescript
+type EyePosition = 'topLeft' | 'topRight' | 'bottomLeft';
+
+type AllEyesOptions = { [K in EyePosition]?: EyeOptions }
 ```
 
 ### RenderCustomPieceItem
