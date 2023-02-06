@@ -12,12 +12,11 @@ import type {
   BitMatrix,
 } from '../types';
 import type { QRCodeMessage, QRCodeOptions } from '../adapters/qrcode';
-import { consoleWarn, transformEyeOptionsToCommonPattern } from '../helpers';
+import { transformEyeOptionsToCommonPattern } from '../helpers';
+import { INNER_EYE_SIZE_IN_BITS, OUTER_EYE_SIZE_IN_BITS } from '../constants';
 import useQRCodeData from '../hooks/useQRCodeData';
 import SVGPieces, { DEFAULT_PIECE_SIZE } from './SVGPieces';
 import SVGGradient from './SVGGradient';
-import { INNER_EYE_SIZE_IN_BITS, OUTER_EYE_SIZE_IN_BITS } from '../constants';
-import { FlatList } from 'react-native';
 
 export interface SVGQRCodeStyledProps extends QRCodeOptions, PieceOptions, SvgProps {
   data: QRCodeMessage;
@@ -61,10 +60,6 @@ function SVGQRCodeStyled(
   }: SVGQRCodeStyledProps,
   ref: ForwardedRef<Svg>
 ) {
-  if (!data) {
-    consoleWarn("element property 'data' is missing.");
-  }
-
   const qrCodeOptions = useMemo(
     () => ({
       version,
@@ -123,8 +118,6 @@ function SVGQRCodeStyled(
     />
   );
 
-  FlatList;
-
   if (backgroundImage) {
     return (
       <Svg ref={ref} width={svgSize} height={svgSize} {..._props}>
@@ -151,11 +144,11 @@ function SVGQRCodeStyled(
 
   return (
     <Svg ref={ref} width={svgSize} height={svgSize} {..._props}>
-      {(gradient || transformedOuterEyesOptions || transformedInnerEyesOptions) && (
+      {(!!gradient || !!transformedOuterEyesOptions || !!transformedInnerEyesOptions) && (
         <Defs>
-          {gradient && <SVGGradient id="gradient" size={svgSize} {...gradient} />}
+          {!!gradient && <SVGGradient id="gradient" size={svgSize} {...gradient} />}
 
-          {transformedOuterEyesOptions &&
+          {!!transformedOuterEyesOptions &&
             Object.keys(transformedOuterEyesOptions).map((key) => {
               return (
                 <SVGGradient
@@ -168,7 +161,7 @@ function SVGQRCodeStyled(
               );
             })}
 
-          {transformedInnerEyesOptions &&
+          {!!transformedInnerEyesOptions &&
             Object.keys(transformedInnerEyesOptions).map((key) => {
               return (
                 <SVGGradient
