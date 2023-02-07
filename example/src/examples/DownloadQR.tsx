@@ -2,16 +2,15 @@ import React, { useRef } from 'react';
 
 import { StyleSheet, View, Pressable, Text } from 'react-native';
 import QRCodeStyled from 'react-native-qrcode-styled';
-import type { Svg } from 'react-native-svg';
 
 import * as FileSystem from 'expo-file-system';
 import * as MediaLibrary from 'expo-media-library';
 
 export default function DownloadQR() {
-  const ref = useRef<Svg>(null);
+  const QRRef = useRef<any>(null);
 
   const handlePressDownload = () => {
-    ref.current?.toDataURL(async (base64Code) => {
+    QRRef.current?.toDataURL(async (base64Code: string) => {
       const filename = FileSystem.documentDirectory + 'qr_code.png';
 
       await FileSystem.writeAsStringAsync(filename, base64Code, {
@@ -24,7 +23,7 @@ export default function DownloadQR() {
 
   return (
     <View style={styles.root}>
-      <QRCodeStyled ref={ref} data={'Download QR'} padding={25} pieceSize={8} />
+      <QRCodeStyled ref={QRRef} data={'Download QR'} padding={25} pieceSize={8} />
 
       <Pressable
         onPress={handlePressDownload}

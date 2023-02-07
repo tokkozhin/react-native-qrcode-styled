@@ -69,6 +69,7 @@
     "prettier": "^2.0.5",
     "react": "18.1.0",
     "react-native": "0.70.5",
+    "react-native-svg": "^13.4.0",
     "react-native-builder-bob": "^0.20.3",
     "release-it": "^15.0.0",
     "typescript": "^4.5.2"
@@ -82,7 +83,7 @@
   "peerDependencies": {
     "react": "*",
     "react-native": "*",
-    "react-native-svg": "^13.2.0"
+    "react-native-svg": "*"
   },
   "engines": {
     "node": ">= 16.0.0"
