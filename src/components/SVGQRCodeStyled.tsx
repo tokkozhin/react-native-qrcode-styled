@@ -58,7 +58,7 @@ function SVGQRCodeStyled(
     children,
     ...props
   }: SVGQRCodeStyledProps,
-  ref: ForwardedRef<Svg>
+  ref?: ForwardedRef<Svg> | null
 ) {
   const qrCodeOptions = useMemo(
     () => ({
