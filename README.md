@@ -2,6 +2,7 @@
 ![npm](https://img.shields.io/npm/dt/react-native-qrcode-styled?style=flat-square)
 ![github](https://img.shields.io/github/stars/tokkozhin/react-native-qrcode-styled?style=flat-square)
 ![Supports Android and iOS](https://img.shields.io/badge/platforms-android%20|%20ios-lightgrey.svg?style=flat-square)
+![expo-compatible](https://img.shields.io/badge/Expo-compatible-9cf.svg?style=flat-square)
 
 # react-native-qrcode-styled
 
