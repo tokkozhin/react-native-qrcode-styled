@@ -1,4 +1,4 @@
-import SVGQRCodeStyled from './components/SVGQRCodeStyled';
+import QRCodeStyled from './components/SVGQRCodeStyled';
 import SVGGradient from './components/SVGGradient';
 import type { SVGQRCodeStyledProps } from './components/SVGQRCodeStyled';
 import type { SVGGradientProps } from './components/SVGGradient';
@@ -23,4 +23,4 @@ export {
 
 export { SVGGradient, SVGQRCodeStyledProps, SVGGradientProps };
 
-export default SVGQRCodeStyled;
+export default QRCodeStyled;
