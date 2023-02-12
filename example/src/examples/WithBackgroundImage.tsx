@@ -11,6 +11,7 @@ export default function WithBackgroundImage() {
       pieceSize={8}
       backgroundImage={{
         href: require('../../assets/code.jpg'),
+        // ... any other svg Image props (x, y, preserveAspectRatio, opacity, ...etc)
       }}
     />
   );

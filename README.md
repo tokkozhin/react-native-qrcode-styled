@@ -53,8 +53,9 @@ isPiecesGlued              | false          | boolean                | If *true*
 outerEyesOptions           | undefined       | [EyeOptions](#EyeOptions) \| [AllEyesOptions](#AllEyesOptions) | Configurations for outer eyes of QR code. If they defined, previous piece configurations won't be work
 innerEyesOptions           | undefined       | [EyeOptions](#EyeOptions) \| [AllEyesOptions](#AllEyesOptions) | The same as `outerEyesOptions` prop but for inner eyes
 color                      | 'black'        | [ColorValue](https://reactnative.dev/docs/colors) | Color of QR code
-gradient                   | undefined       | [GradientProps](#GradientProps) | Gradient of QR code. Can be two types: 'linear' ?| 'radial'. By default 'linear'
+gradient                   | undefined       | [GradientProps](#GradientProps) | Gradient of QR code. Can be two types: 'linear' \| 'radial'. By default 'linear'
 padding                    | undefined       | number                 | Padding inside `<Svg/>` component from QR code
+logo                       | undefined       | [LogoOptions](#LogoOptions) | Configurations for logo. Support svg's `<Image/>` props
 backgroundImage            | undefined       | svg's `<Image/>` props type | Background image for QR code
 version                    | undefined       | number                 |[Description](https://github.com/soldair/node-qrcode#version)
 maskPattern                | undefined       | number                 |[Description](https://github.com/soldair/node-qrcode#maskpattern)
@@ -119,6 +120,23 @@ type RenderCustomPieceItem = ({x, y, pieceSize, qrSize, bitMatrix}: {
   qrSize: number;
   bitMatrix: number[][];
 }) => React.ReactElement | null;
+```
+
+### LogoOptions
+```typescript
+export type LogoArea = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+};
+
+export type LogoOptions = {
+  hidePieces?: boolean;
+  padding?: number;
+  scale?: number;
+  onChange?: (logoArea?: LogoArea) => void;
+} & SVGImageProps;
 ```
 
 ## Contributing

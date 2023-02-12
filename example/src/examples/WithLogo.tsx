@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import QRCodeStyled from 'react-native-qrcode-styled';
 
 export default function WithLogo() {
@@ -20,12 +20,23 @@ export default function WithLogo() {
           borderRadius: 12,
           color: '#ffa114',
         }}
+        logo={{
+          href: require('../../assets/SVG_Logo.png'),
+          padding: 4,
+          // scale: 0.8,
+          // hidePieces: false,
+          // ... any other svg Image props (x, y, preserveAspectRatio, opacity, ...etc)
+        }}
       />
 
-      {/*OR you can add svg logo into QRCodeStyles component as a children callback */}
+      {/* OR you can add logo by adding classic RN Image component */}
+      {/* 
       <View style={styles.logoContainer}>
         <Image source={require('../../assets/SVG_Logo.png')} style={styles.logo} />
-      </View>
+      </View> 
+      */}
+
+      {/* OR you can add svg logo into QRCodeStyles component as a children callback */}
     </View>
   );
 }

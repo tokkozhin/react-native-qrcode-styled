@@ -3,6 +3,7 @@ import QRC, { QRCodeOptions } from 'qrcode';
 import { transformBitArrayToMatrix } from '../helpers';
 import type { BitMatrix } from '../types';
 
+export type { QRCodeOptions, QRCodeErrorCorrectionLevel } from 'qrcode';
 export type QRCodeMessage = string | QRC.QRCodeSegment[];
 
 export function createQRCode(
@@ -19,5 +20,3 @@ export function createQRCode(
     bitMatrix,
   };
 }
-
-export { QRCodeOptions } from 'qrcode';
