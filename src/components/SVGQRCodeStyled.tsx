@@ -1,6 +1,13 @@
-import React, { ForwardedRef, forwardRef, useEffect, useMemo } from 'react';
-
-import { Svg, Defs, G, SvgProps, Image, ClipPath, ImageProps } from 'react-native-svg';
+import React, { ForwardedRef, forwardRef, useEffect, useMemo, useState } from 'react';
+import {
+  Svg,
+  Defs,
+  G,
+  SvgProps,
+  ClipPath,
+  Image as SVGImage,
+  ImageProps as SVGImageProps,
+} from 'react-native-svg';
 
 import type {
   PieceOptions,
@@ -10,12 +17,15 @@ import type {
   AllEyesOptions,
   RenderCustomPieceItem,
   BitMatrix,
+  LogoArea,
+  LogoOptions,
 } from '../types';
 import type { QRCodeMessage, QRCodeOptions } from '../adapters/qrcode';
 import { transformEyeOptionsToCommonPattern } from '../helpers';
 import { INNER_EYE_SIZE_IN_BITS, OUTER_EYE_SIZE_IN_BITS } from '../constants';
 import useQRCodeData from '../hooks/useQRCodeData';
 import SVGPieces, { DEFAULT_PIECE_SIZE } from './SVGPieces';
+import SVGQRLogo from './SVGQRLogo';
 import SVGGradient from './SVGGradient';
 
 export interface SVGQRCodeStyledProps extends QRCodeOptions, PieceOptions, SvgProps {
@@ -27,7 +37,8 @@ export interface SVGQRCodeStyledProps extends QRCodeOptions, PieceOptions, SvgPr
   renderCustomPieceItem?: RenderCustomPieceItem;
   isPiecesGlued?: boolean;
   padding?: number;
-  backgroundImage?: ImageProps;
+  backgroundImage?: SVGImageProps;
+  logo?: LogoOptions;
   children?: (pieceSize: number, bitMatrix: BitMatrix) => SvgProps['children'];
 }
 
@@ -50,6 +61,7 @@ function SVGQRCodeStyled(
     padding,
     color = 'black',
     gradient,
+    logo,
     backgroundImage,
     version,
     maskPattern,
@@ -60,6 +72,8 @@ function SVGQRCodeStyled(
   }: SVGQRCodeStyledProps,
   ref?: ForwardedRef<Svg> | null
 ) {
+  const { hidePieces = true, onChange: onChangeLogo, ...logoProps } = logo || {};
+  const [logoArea, setLogoArea] = useState<LogoArea | undefined>();
   const qrCodeOptions = useMemo(
     () => ({
       version,
@@ -72,13 +86,13 @@ function SVGQRCodeStyled(
   const { qrCodeSize, bitMatrix } = useQRCodeData(data, qrCodeOptions);
   const svgSize = pieceSize * qrCodeSize;
 
-  const transformedOuterEyesOptions = transformEyeOptionsToCommonPattern(outerEyesOptions);
-  const transformedInnerEyesOptions = transformEyeOptionsToCommonPattern(innerEyesOptions);
-
   useEffect(() => {
     onChangeSize?.(qrCodeSize);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [qrCodeSize]);
+
+  const transformedOuterEyesOptions = transformEyeOptionsToCommonPattern(outerEyesOptions);
+  const transformedInnerEyesOptions = transformEyeOptionsToCommonPattern(innerEyesOptions);
 
   const _props = { ...props };
   if (padding) {
@@ -100,7 +114,7 @@ function SVGQRCodeStyled(
     bottomLeft: [2 * pieceSize, svgSize - pieceSize * OUTER_EYE_SIZE_IN_BITS + 2 * pieceSize],
   };
 
-  const Pieces = (
+  const renderPieces = () => (
     <SVGPieces
       bitMatrix={bitMatrix}
       isPiecesGlued={isPiecesGlued}
@@ -115,19 +129,36 @@ function SVGQRCodeStyled(
       outerEyesOptions={transformedOuterEyesOptions}
       innerEyesOptions={transformedInnerEyesOptions}
       renderCustomPieceItem={renderCustomPieceItem}
+      logoArea={hidePieces ? logoArea : undefined}
     />
   );
+
+  const handleChangeLogo = (area: LogoArea | undefined) => {
+    setLogoArea(area);
+    onChangeLogo?.(area);
+  };
+
+  const renderLogo = () =>
+    logo ? (
+      <SVGQRLogo
+        {...logoProps}
+        errorCorrectionLevel={errorCorrectionLevel}
+        pieceSize={pieceSize}
+        qrCodeSize={qrCodeSize}
+        onChange={handleChangeLogo}
+      />
+    ) : null;
 
   if (backgroundImage) {
     return (
       <Svg ref={ref} width={svgSize} height={svgSize} {..._props}>
         <Defs>
           <ClipPath id={'image'}>
-            <G>{Pieces}</G>
+            <G>{renderPieces()}</G>
           </ClipPath>
         </Defs>
 
-        <Image
+        <SVGImage
           x="0"
           y="0"
           width="100%"
@@ -136,6 +167,8 @@ function SVGQRCodeStyled(
           {...backgroundImage}
           clipPath="url(#image)"
         />
+
+        {renderLogo()}
 
         {children?.(pieceSize, bitMatrix)}
       </Svg>
@@ -176,7 +209,10 @@ function SVGQRCodeStyled(
         </Defs>
       )}
 
-      <G fill={gradient ? 'url(#gradient)' : color}>{Pieces}</G>
+      <G fill={gradient ? 'url(#gradient)' : color}>{renderPieces()}</G>
+
+      {renderLogo()}
+
       {children?.(pieceSize, bitMatrix)}
     </Svg>
   );

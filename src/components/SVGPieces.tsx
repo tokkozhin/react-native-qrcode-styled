@@ -23,6 +23,7 @@ import type {
   BorderRadius,
   RenderCustomPieceItem,
   AllEyesOptions,
+  LogoArea,
 } from '../types';
 
 export const DEFAULT_PIECE_SIZE = 5;
@@ -35,6 +36,7 @@ interface SVGPiecesProps extends PieceOptions {
   innerEyesOptions?: AllEyesOptions;
   isPiecesGlued?: boolean;
   renderCustomPieceItem?: RenderCustomPieceItem;
+  logoArea?: LogoArea;
 }
 
 export default function SVGPieces({
@@ -51,6 +53,7 @@ export default function SVGPieces({
   innerEyesOptions,
   isPiecesGlued = false,
   renderCustomPieceItem,
+  logoArea,
 }: SVGPiecesProps) {
   if (!bitMatrix || !bitMatrix[0]) {
     return null;
@@ -77,6 +80,20 @@ export default function SVGPieces({
 
   for (let y = 0; y < bitMatrix.length; y++) {
     for (let x = 0; x < bitMatrix.length; x++) {
+      // Not showing any shapes overlapping with logo if QR has it
+      if (logoArea) {
+        const _x = x * pieceSize;
+        const _y = y * pieceSize;
+        if (
+          logoArea.x < _x + pieceSize &&
+          logoArea.x + logoArea.width > _x &&
+          logoArea.y < _y + pieceSize &&
+          logoArea.y + logoArea.height > _y
+        ) {
+          continue;
+        }
+      }
+
       if (bitMatrix[y]?.[x] === 1) {
         const origin = `
           ${x * pieceSize + pieceSize / 2},

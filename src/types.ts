@@ -1,6 +1,6 @@
 import type React from 'react';
 import type { ColorValue } from 'react-native';
-import type { PathProps } from 'react-native-svg';
+import type { PathProps, ImageProps as SVGImageProps } from 'react-native-svg';
 
 export type GradientOrigin = [number, number];
 
@@ -74,3 +74,17 @@ export type RenderCustomPieceItem = ({
   qrSize: number;
   bitMatrix: BitMatrix;
 }) => React.ReactElement | null;
+
+export type LogoArea = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+};
+
+export type LogoOptions = {
+  hidePieces?: boolean;
+  padding?: number;
+  scale?: number;
+  onChange?: (logoArea?: LogoArea) => void;
+} & SVGImageProps;
