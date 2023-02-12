@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/tokkozhin/react-native-qrcode-styled/main/assets/library_logo.png" alt="React Native QR Code Styled" >
+
 ![npm](https://img.shields.io/npm/v/react-native-qrcode-styled?style=flat-square)
 ![npm](https://img.shields.io/npm/dt/react-native-qrcode-styled?style=flat-square)
 ![github](https://img.shields.io/github/stars/tokkozhin/react-native-qrcode-styled?style=flat-square)
