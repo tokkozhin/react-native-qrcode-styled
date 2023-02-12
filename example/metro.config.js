@@ -31,5 +31,13 @@ module.exports = {
       acc[name] = path.join(__dirname, 'node_modules', name);
       return acc;
     }, {}),
+
+    assetExts: defaultConfig.resolver.assetExts.filter((ext) => ext !== 'svg'),
+    sourceExts: [...defaultConfig.resolver.sourceExts, 'svg'],
+  },
+
+  transformer: {
+    ...defaultConfig.transformer,
+    babelTransformerPath: require.resolve('react-native-svg-transformer'),
   },
 };

@@ -23,7 +23,8 @@
     "@expo/webpack-config": "^0.17.2",
     "@types/noisejs": "^0.0.28",
     "babel-loader": "^8.1.0",
-    "babel-plugin-module-resolver": "^4.1.0"
+    "babel-plugin-module-resolver": "^4.1.0",
+    "react-native-svg-transformer": "^1.0.0"
   },
   "private": true
 }
