@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-import { StyleSheet, View, Pressable, Text } from 'react-native';
+import { StyleSheet, View, Pressable, Text, Alert } from 'react-native';
 import QRCodeStyled from 'react-native-qrcode-styled';
 
 import * as FileSystem from 'expo-file-system';
@@ -18,6 +18,7 @@ export default function DownloadQR() {
       });
 
       await MediaLibrary.saveToLibraryAsync(filename);
+      Alert.alert('QR downloaded!');
     });
   };
 
