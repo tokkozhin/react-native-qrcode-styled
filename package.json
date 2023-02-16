@@ -37,8 +37,8 @@
   },
   "keywords": [
     "react-native",
-    "ios",
-    "android"
+    "qrcode",
+    "svg"
   ],
   "repository": "https://github.com/tokkozhin/react-native-qrcode-styled",
   "author": "Daniel Tokkozhin <dan.t.a@mail.ru> (https://github.com/tokkozhin)",
