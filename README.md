@@ -141,6 +141,20 @@ export type LogoOptions = {
 } & SVGImageProps;
 ```
 
+## Troubleshooting
+
+### Gaps between pieces (only on Android)
+<img src="https://raw.githubusercontent.com/tokkozhin/react-native-qrcode-styled/main/assets/troubleshooying_gaps.png" alt="Gaps between pieces (only on Android)" width="236">
+
+If you'll see that gaps between pieces on Android, just scale pieces up a little bit:
+```
+<QRCodeStyled
+  ...
+  pieceScale={1.02} // or any between of 1.01 - 1.04
+/>
+```
+
+
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
