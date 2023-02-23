@@ -5,21 +5,37 @@ import QRCodeStyled from 'react-native-qrcode-styled';
 
 import * as FileSystem from 'expo-file-system';
 import * as MediaLibrary from 'expo-media-library';
+// also need to add MEDIA_LIBRARY permission for android
+// https://docs.expo.dev/versions/latest/sdk/media-library/#configuration-in-appjsonappconfigjs
 
 export default function DownloadQR() {
+  const [permissionResponse, requestPermission] = MediaLibrary.usePermissions();
   const QRRef = useRef<any>(null);
 
-  const handlePressDownload = () => {
-    QRRef.current?.toDataURL(async (base64Code: string) => {
-      const filename = FileSystem.documentDirectory + 'qr_code.png';
+  const handlePressDownload = async () => {
+    try {
+      let isPermissionGranted = permissionResponse?.granted;
+      if (!isPermissionGranted) {
+        isPermissionGranted = (await requestPermission()).granted;
+      }
 
-      await FileSystem.writeAsStringAsync(filename, base64Code, {
-        encoding: FileSystem.EncodingType.Base64,
+      if (!isPermissionGranted) {
+        throw new Error('Library permission access denied');
+      }
+
+      QRRef.current?.toDataURL(async (base64Code: string) => {
+        const filename = FileSystem.documentDirectory + 'qr_code.png';
+
+        await FileSystem.writeAsStringAsync(filename, base64Code, {
+          encoding: FileSystem.EncodingType.Base64,
+        });
+
+        await MediaLibrary.saveToLibraryAsync(filename);
+        Alert.alert('QR downloaded!');
       });
-
-      await MediaLibrary.saveToLibraryAsync(filename);
-      Alert.alert('QR downloaded!');
-    });
+    } catch (error) {
+      console.error('QR downloading failed: ', error);
+    }
   };
 
   return (
