@@ -40,6 +40,7 @@ export interface SVGQRCodeStyledProps extends QRCodeOptions, PieceOptions, SvgPr
   backgroundImage?: SVGImageProps;
   logo?: LogoOptions;
   children?: (pieceSize: number, bitMatrix: BitMatrix) => SvgProps['children'];
+  renderBackground?: (pieceSize: number, bitMatrix: BitMatrix) => SvgProps['children'];
 }
 
 function SVGQRCodeStyled(
@@ -68,6 +69,7 @@ function SVGQRCodeStyled(
     toSJISFunc,
     errorCorrectionLevel = 'M',
     children,
+    renderBackground,
     ...props
   }: SVGQRCodeStyledProps,
   ref?: ForwardedRef<Svg> | null
@@ -158,6 +160,8 @@ function SVGQRCodeStyled(
           </ClipPath>
         </Defs>
 
+        {renderBackground?.(pieceSize, bitMatrix)}
+
         <SVGImage
           x="0"
           y="0"
@@ -208,6 +212,8 @@ function SVGQRCodeStyled(
             })}
         </Defs>
       )}
+
+      {renderBackground?.(pieceSize, bitMatrix)}
 
       <G fill={gradient ? 'url(#gradient)' : color}>{renderPieces()}</G>
 
