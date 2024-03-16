@@ -22,6 +22,11 @@ or with yarn
 yarn add react-native-svg react-native-qrcode-styled
 ```
 
+If you use typescript, run:
+```sh
+yarn add -D @types/qrcode
+```
+
 ## Usage
 
 Simple usage is:

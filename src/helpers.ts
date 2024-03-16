@@ -11,7 +11,7 @@ import type {
 } from './types';
 
 export function transformBitArrayToMatrix(bitArray: BitArray, qrCodeSize: number): BitMatrix {
-  const matrix = [];
+  const matrix: BitArray[] = [];
   let row: BitArray = [];
 
   for (let i: Bit = 0; i < bitArray.length; i++) {

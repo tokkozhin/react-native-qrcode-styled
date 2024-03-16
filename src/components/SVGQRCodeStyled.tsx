@@ -28,7 +28,10 @@ import SVGPieces, { DEFAULT_PIECE_SIZE } from './SVGPieces';
 import SVGQRLogo from './SVGQRLogo';
 import SVGGradient from './SVGGradient';
 
-export interface SVGQRCodeStyledProps extends QRCodeOptions, PieceOptions, SvgProps {
+export interface SVGQRCodeStyledProps
+  extends QRCodeOptions,
+    PieceOptions,
+    Omit<SvgProps, 'children'> {
   data?: QRCodeMessage;
   onChangeSize?: (size: number) => void;
   pieceLiquidRadius?: number;
