@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.4,
     shadowRadius: 16,
-    elevationColor: '#34495E',
     elevation: 16,
     borderRadius: 20,
   },
