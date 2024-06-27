@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Path } from 'react-native-svg';
+import isEqual from 'react-fast-compare';
 
 import { INNER_EYE_SIZE_IN_BITS, OUTER_EYE_SIZE_IN_BITS } from '../constants';
 
@@ -39,7 +40,7 @@ interface SVGPiecesProps extends PieceOptions {
   logoArea?: LogoArea;
 }
 
-export default function SVGPieces({
+function SVGPiecesImpl({
   bitMatrix,
   pieceLiquidRadius = 0,
   pieceBorderRadius,
@@ -291,3 +292,5 @@ export default function SVGPieces({
 
   return <>{svgPiecesMatrix}</>;
 }
+
+export default memo(SVGPiecesImpl, isEqual);
