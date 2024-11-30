@@ -56,14 +56,14 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^17.0.2",
+    "@commitlint/config-conventional": "^19.5.0",
     "@evilmartians/lefthook": "^1.5.0",
     "@react-native/eslint-config": "0.76.3",
     "@release-it/conventional-changelog": "^9.0.2",
     "@types/jest": "^29.5.5",
     "@types/qrcode": "^1.5.5",
     "@types/react": "^18.2.44",
-    "commitlint": "^17.0.2",
+    "commitlint": "^19.5.0",
     "del-cli": "^5.1.0",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
@@ -116,9 +116,7 @@
     },
     "plugins": {
       "@release-it/conventional-changelog": {
-        "preset": {
-          "name": "angular"
-        }
+        "preset": "angular"
       }
     }
   },
@@ -128,7 +126,9 @@
       "@react-native",
       "prettier"
     ],
-    "plugins": ["prettier"],
+    "plugins": [
+      "prettier"
+    ],
     "rules": {
       "react/react-in-jsx-scope": "off",
       "prettier/prettier": [
