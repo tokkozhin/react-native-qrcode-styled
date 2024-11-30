@@ -60,6 +60,14 @@ buck-out/
 android/app/libs
 android/keystores/debug.keystore
 
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
 # Expo
 .expo/
 
@@ -71,3 +79,7 @@ lib/
 
 # custom
 resources/
+
+# React Native Codegen
+ios/generated
+android/generated

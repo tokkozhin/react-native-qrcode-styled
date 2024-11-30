@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 
 import { StyleSheet, View, Pressable, Text, Alert } from 'react-native';
 import QRCodeStyled, { SVGGradient, SVGQRCodeStyledProps } from 'react-native-qrcode-styled';
@@ -6,6 +6,7 @@ import QRCodeStyled, { SVGGradient, SVGQRCodeStyledProps } from 'react-native-qr
 import * as FileSystem from 'expo-file-system';
 import * as MediaLibrary from 'expo-media-library';
 import { Defs, Rect } from 'react-native-svg';
+import React from 'react';
 // also need to add MEDIA_LIBRARY permission for android
 // https://docs.expo.dev/versions/latest/sdk/media-library/#configuration-in-appjsonappconfigjs
 
@@ -86,9 +87,11 @@ export default function DownloadQR() {
 
 const styles = StyleSheet.create({
   root: {
+    alignSelf: 'center',
     backgroundColor: 'white',
     borderRadius: 16,
     overflow: 'hidden',
+    alignItems: 'center',
   },
   button: {
     width: '100%',
