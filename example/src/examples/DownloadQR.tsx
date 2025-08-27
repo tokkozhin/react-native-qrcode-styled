@@ -69,7 +69,6 @@ export default function DownloadQR() {
         ref={QRRef}
         data={'Download QR'}
         padding={25}
-        pieceSize={8}
         color={'white'}
         renderBackground={renderBackground}
       />

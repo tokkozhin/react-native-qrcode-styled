@@ -22,8 +22,13 @@ export default function CustomPiecesAndEyes() {
       !isCoordsOfOuterEyes(x, y, bitMatrix.length) &&
       !isCoordsOfInnerEyes(x, y, bitMatrix.length)
     ) {
+      const origin = `
+          ${x * pieceSize + pieceSize / 2},
+          ${y * pieceSize + pieceSize / 2}`;
       return (
         <Path
+          scale={1.03}
+          origin={origin}
           fill={`rgb(${c},${c + 50},${c + 100})`}
           key={`piece_${x}_${y}`}
           d={`
@@ -87,7 +92,6 @@ export default function CustomPiecesAndEyes() {
       data={'Custom QR Code with eyes'}
       style={styles.svg}
       padding={25}
-      pieceSize={8}
       renderCustomPieceItem={renderCustomPieceItem}
     >
       {renderChildren}

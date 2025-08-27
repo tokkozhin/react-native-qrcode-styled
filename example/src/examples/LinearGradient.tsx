@@ -7,8 +7,7 @@ export default function LinearGradient() {
       data={'LinearGradient'}
       style={styles.svg}
       padding={25}
-      pieceSize={8}
-      pieceBorderRadius={[0, 6, 0, 6]}
+      pieceBorderRadius={[0, '75%', 0, '75%']}
       isPiecesGlued
       gradient={{
         type: 'linear',

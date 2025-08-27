@@ -7,8 +7,7 @@ export default function CustomEyes() {
       data={'Custom Corners'}
       style={styles.svg}
       padding={20}
-      pieceSize={8}
-      pieceBorderRadius={4}
+      pieceBorderRadius={'50%'}
       gradient={{
         type: 'radial',
         options: {
@@ -20,17 +19,17 @@ export default function CustomEyes() {
       }}
       outerEyesOptions={{
         topLeft: {
-          borderRadius: [20, 20, 0, 20],
+          borderRadius: ['40%', '40%', 0, '40%'],
         },
         topRight: {
-          borderRadius: [20, 20, 20],
+          borderRadius: ['40%', '40%', '40%'],
         },
         bottomLeft: {
-          borderRadius: [20, 0, 20, 20],
+          borderRadius: ['40%', 0, '40%', '40%'],
         },
       }}
       innerEyesOptions={{
-        borderRadius: 12,
+        borderRadius: '50%',
         scale: 0.85,
       }}
     />

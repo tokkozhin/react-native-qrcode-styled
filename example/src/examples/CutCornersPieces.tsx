@@ -7,9 +7,8 @@ export default function CutCornersPieces() {
       data={'Cut Corners Pieces'}
       style={styles.svg}
       padding={25}
-      pieceSize={8}
       pieceCornerType={'cut'}
-      pieceBorderRadius={[4, 0, 4]}
+      pieceBorderRadius={['50%', 0, '50%']}
       isPiecesGlued
       color={'#59387e'}
     />

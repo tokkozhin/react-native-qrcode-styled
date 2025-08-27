@@ -7,7 +7,6 @@ export default function RainStyle() {
       data={'Rain Style'}
       style={styles.svg}
       padding={25}
-      pieceSize={8}
       pieceScale={[0.85, 1.1]}
       color={'#106cb3'}
     />

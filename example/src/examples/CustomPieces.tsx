@@ -16,9 +16,14 @@ export default function CustomPieces() {
       // !isCoordsOfCornerDot(x, y, bitMatrix.length) // <-- add this if you want to exclude corner dot from svg
     ) {
       const c = Math.round(Math.random() * 120);
+      const origin = `
+          ${x * pieceSize + pieceSize / 2},
+          ${y * pieceSize + pieceSize / 2}`;
 
       return (
         <Path
+          origin={origin}
+          scale={1.03}
           fill={`rgb(${c},${c},${c})`}
           key={`piece_${x}_${y}`}
           d={`
@@ -39,7 +44,6 @@ export default function CustomPieces() {
       data={'Custom QR Code'}
       style={styles.svg}
       padding={25}
-      pieceSize={8}
       renderCustomPieceItem={renderCustomPieceItem}
     />
   );

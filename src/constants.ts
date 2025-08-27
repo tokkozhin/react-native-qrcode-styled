@@ -14,3 +14,5 @@ export const QR_ECL_PERS = {
   quartile: 0.1,
   high: 0.14,
 };
+
+export const DEFAULT_SIZE = 160;

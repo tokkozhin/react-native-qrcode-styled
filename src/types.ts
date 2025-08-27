@@ -27,7 +27,9 @@ export type GradientProps = {
 
 export type CornerType = 'rounded' | 'cut'; // default 'rounded'
 
-export type BorderRadius = number | number[];
+export type MultiValue = number | `${number}%`; // default 0
+
+export type BorderRadius = MultiValue | MultiValue[]; // default 0
 
 export type Bit = 0 | 1;
 
@@ -36,7 +38,7 @@ export type BitArray = Bit[];
 export type BitMatrix = BitArray[];
 
 export type PieceOptions = {
-  pieceSize?: number;
+  pieceSize: number;
   pieceScale?: PathProps['scale']; // scaleXY | [scaleX, scaleY]
   pieceRotation?: string | number;
   pieceCornerType?: CornerType;

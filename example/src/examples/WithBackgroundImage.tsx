@@ -7,7 +7,7 @@ export default function WithBackgroundImage() {
       data={'QR with background'}
       style={styles.svg}
       padding={24}
-      pieceSize={8}
+      pieceScale={1}
       backgroundImage={{
         href: require('../../assets/code.jpg'),
         // ... any other svg Image props (x, y, preserveAspectRatio, opacity, ...etc)

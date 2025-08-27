@@ -7,8 +7,7 @@ export default function CirclePieces() {
       data={'Styling Pieces'}
       style={styles.svg}
       padding={25}
-      pieceSize={8}
-      pieceBorderRadius={4}
+      pieceBorderRadius={'50%'}
       color={'#F57F17'}
     />
   );

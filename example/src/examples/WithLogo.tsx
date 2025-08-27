@@ -8,15 +8,14 @@ export default function WithLogo() {
         data={'QR code with logo'}
         style={styles.svg}
         padding={20}
-        pieceSize={8}
         color={'#000'}
         errorCorrectionLevel={'H'}
         innerEyesOptions={{
-          borderRadius: 12,
+          borderRadius: '20%',
           color: '#000',
         }}
         outerEyesOptions={{
-          borderRadius: 12,
+          borderRadius: '30%',
           color: '#ffa114',
         }}
         logo={{

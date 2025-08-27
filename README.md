@@ -48,8 +48,8 @@ For more examples [check out the Example app](https://github.com/tokkozhin/react
 Name                       | Default        | Type                   | Description
 ---------------------------|----------------|------------------------|-----
 data                       | "I'm QR Code!" | string                 | Message for encoding. Can also be an array. More info [HERE](https://github.com/soldair/node-qrcode#manual-mode).
-pieceSize                  | 5              | number                 | Size of each piece of the QR code
-pieceScale                 | undefined       | SvgProps['scale']      | Scale of each piece of the QR code
+size                       | 160            | number                 | Size of each piece of the QR code
+pieceScale                 | 1.03(to avoid gaps)| SvgProps['scale']   | Scale of each piece of the QR code
 pieceRotation              | undefined       | SvgProps['rotation']   | Angle of rotation of each piece of the QR code (in degrees)
 pieceCornerType            | 'rounded'      | 'rounded' \| 'cut'     | Type of piece corner
 pieceBorderRadius          | 0              | number \| number[]     | Border radius of all corners of each piece. Can also be an array to define different border radius for each corner (start from top-left corner)
@@ -149,14 +149,14 @@ export type LogoOptions = {
 
 ## Troubleshooting
 
-### Gaps between pieces (only on Android)
-<img src="https://raw.githubusercontent.com/tokkozhin/react-native-qrcode-styled/main/assets/troubleshooying_gaps.png" alt="Gaps between pieces (only on Android)" width="236">
+### Gaps between pieces
+<img src="https://raw.githubusercontent.com/tokkozhin/react-native-qrcode-styled/main/assets/troubleshooying_gaps.png" alt="Gaps between pieces" width="236">
 
 If you'll see that gaps between pieces on Android, just scale pieces up a little bit:
 ```jsx
 <QRCodeStyled
   ...
-  pieceScale={1.02} // or any between of 1.01 - 1.04
+  pieceScale={1.03} // or any between of 1.01 - 1.04
 />
 ```
 

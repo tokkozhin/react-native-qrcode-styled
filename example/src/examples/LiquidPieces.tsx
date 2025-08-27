@@ -7,8 +7,7 @@ export default function LiquidPieces() {
       data={'Liquid Pieces'}
       style={styles.svg}
       padding={25}
-      pieceSize={8}
-      pieceLiquidRadius={4}
+      pieceLiquidRadius={'50%'}
       color={'#c9a73f'}
     />
   );

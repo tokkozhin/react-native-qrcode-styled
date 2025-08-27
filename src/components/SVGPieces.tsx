@@ -21,18 +21,16 @@ import type {
   BitMatrix,
   PieceOptions,
   EyePosition,
-  BorderRadius,
   RenderCustomPieceItem,
   AllEyesOptions,
   LogoArea,
+  MultiValue,
 } from '../types';
 
-export const DEFAULT_PIECE_SIZE = 5;
-
 interface SVGPiecesProps extends PieceOptions {
+  qrSize: number;
   bitMatrix: BitMatrix;
-  pieceLiquidRadius?: number;
-  pieceBorderRadius?: BorderRadius;
+  pieceLiquidRadius?: MultiValue;
   outerEyesOptions?: AllEyesOptions;
   innerEyesOptions?: AllEyesOptions;
   isPiecesGlued?: boolean;
@@ -41,10 +39,11 @@ interface SVGPiecesProps extends PieceOptions {
 }
 
 function SVGPiecesImpl({
+  qrSize,
   bitMatrix,
   pieceLiquidRadius = 0,
   pieceBorderRadius,
-  pieceSize = DEFAULT_PIECE_SIZE,
+  pieceSize,
   pieceCornerType,
   pieceScale,
   pieceRotation,
@@ -60,7 +59,6 @@ function SVGPiecesImpl({
     return null;
   }
 
-  const qrSize = bitMatrix.length * pieceSize;
   const svgPiecesMatrix: React.ReactElement[] = [];
 
   if (renderCustomPieceItem) {

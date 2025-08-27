@@ -7,8 +7,7 @@ export default function GluedRoundedPieces() {
       data={'Glued Rounded Pieces'}
       style={styles.svg}
       padding={20}
-      pieceSize={7}
-      pieceBorderRadius={4}
+      pieceBorderRadius={'50%'}
       isPiecesGlued
       color={'#1d5480'}
       preserveAspectRatio="none"

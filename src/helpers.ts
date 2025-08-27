@@ -8,7 +8,25 @@ import type {
   EyeOptions,
   EyePosition,
   CornerType,
+  MultiValue,
 } from './types';
+
+export function convertMultiValueToNumber(value: MultiValue, unit: number): number {
+  if (typeof value === 'number') {
+    return value;
+  }
+
+  if (value.endsWith('%')) {
+    const percentages = parseFloat(value);
+    return (percentages / 100) * unit;
+  }
+
+  return 0;
+}
+
+export function convertBorderRadiusMap(borderRadiusMap: MultiValue[], unit: number): number[] {
+  return borderRadiusMap.map((val) => convertMultiValueToNumber(val, unit));
+}
 
 export function transformBitArrayToMatrix(bitArray: BitArray, qrCodeSize: number): BitMatrix {
   const matrix: BitArray[] = [];
@@ -26,7 +44,9 @@ export function transformBitArrayToMatrix(bitArray: BitArray, qrCodeSize: number
   return matrix;
 }
 
-export function transformBorderRadiusToArray(borderRadius?: BorderRadius): number[] | undefined {
+export function transformBorderRadiusToArray(
+  borderRadius?: BorderRadius
+): (number | `${number}%`)[] | undefined {
   if (!borderRadius) {
     return undefined;
   }
@@ -81,7 +101,7 @@ export function getPieceRoundedSquarePathData({
   y: number;
   size: number;
   cornerType?: CornerType;
-  borderRadius?: number[];
+  borderRadius?: MultiValue[];
   isGlued?: boolean;
   isLiquid?: boolean;
   bitMatrix: BitMatrix;
@@ -89,7 +109,9 @@ export function getPieceRoundedSquarePathData({
   const _x = x * size;
   const _y = y * size;
   const isCornerTypeCut = cornerType === 'cut';
-  let [topLeftR = 0, topRightR = 0, bottomRightR = 0, bottomLeftR = 0] = borderRadius || [];
+  let [topLeftR = 0, topRightR = 0, bottomRightR = 0, bottomLeftR = 0] = borderRadius
+    ? convertBorderRadiusMap(borderRadius, size)
+    : [];
 
   const generateArcStart = (cornerPosition: number) =>
     isCornerTypeCut ? 'L' : `A${cornerPosition} ${cornerPosition} 0 0 1`;
@@ -147,11 +169,12 @@ export function getPieceLiquidPathData(
   x: number,
   y: number,
   size: number,
-  borderRadius: number
+  borderRadius: MultiValue
 ): string {
   const _x = x * size;
   const _y = y * size;
-  const r = borderRadius > size ? size : borderRadius;
+  const convertedBorderRadius = convertMultiValueToNumber(borderRadius, size);
+  const r = convertedBorderRadius > size ? size : convertedBorderRadius;
 
   return `
       M${_x} ${_y}
@@ -210,12 +233,14 @@ export function getOuterEyePathData(
 
 export function getRoundedOuterEyePathData(
   position: EyePosition,
-  borderRadius: number[],
+  borderRadius: MultiValue[],
   pieceSize: number,
   qrSize: number
 ): string {
   const outerEyeSize = OUTER_EYE_SIZE_IN_BITS * pieceSize;
-  let [topLeftR = 0, topRightR = 0, bottomRightR = 0, bottomLeftR = 0] = borderRadius || [];
+  // border radius for outer eye (7 pieces)
+  let [topLeftR = 0, topRightR = 0, bottomRightR = 0, bottomLeftR = 0] =
+    convertBorderRadiusMap(borderRadius, pieceSize * 7) || [];
   let topLeftInnerR = pieceSize < topLeftR ? topLeftR - pieceSize : 0;
   let topRightInnerR = pieceSize < topRightR ? topRightR - pieceSize : 0;
   let bottomRightInnerR = pieceSize < bottomRightR ? bottomRightR - pieceSize : 0;
@@ -354,14 +379,16 @@ export function getInnerEyePathData(
 
 export function getRoundedInnerEyePathData(
   position: EyePosition,
-  borderRadius: number[],
+  borderRadius: MultiValue[],
   pieceSize: number,
   qrSize: number
 ): string {
   const outerSize = OUTER_EYE_SIZE_IN_BITS * pieceSize;
   const innerSize = INNER_EYE_SIZE_IN_BITS * pieceSize;
   const offset = 2 * pieceSize;
-  const [topLeftR = 0, topRightR = 0, bottomRightR = 0, bottomLeftR = 0] = borderRadius || [];
+  // border radius for inner eye (3 pieces)
+  const [topLeftR = 0, topRightR = 0, bottomRightR = 0, bottomLeftR = 0] =
+    convertBorderRadiusMap(borderRadius, pieceSize * 3) || [];
 
   if (position === 'topLeft') {
     return `

@@ -6,12 +6,14 @@ import type { LogoOptions } from '../types';
 import useQRCodeLogoSize from '../hooks/useQRCodeLogoSize';
 
 export interface SVGQRLogoProps extends LogoOptions {
+  qrSize: number;
   errorCorrectionLevel: QRCodeErrorCorrectionLevel;
   pieceSize: number;
   qrCodeSize: number;
 }
 
 export default function SVGQRLogo({
+  qrSize,
   errorCorrectionLevel,
   pieceSize,
   qrCodeSize,
@@ -31,10 +33,9 @@ export default function SVGQRLogo({
     qrCodeSize,
   });
 
-  const svgSize = pieceSize * qrCodeSize;
   const hasSize = width > 0 && height > 0;
-  const logoX = Number(x ?? (width ? svgSize / 2 - width / 2 : 0));
-  const logoY = Number(y ?? (height ? svgSize / 2 - height / 2 : 0));
+  const logoX = Number(x ?? (width ? qrSize / 2 - width / 2 : 0));
+  const logoY = Number(y ?? (height ? qrSize / 2 - height / 2 : 0));
 
   const logoArea = useMemo(
     () =>
