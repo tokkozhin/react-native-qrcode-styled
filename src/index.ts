@@ -1,3 +1,4 @@
+import 'fast-text-encoding';
 import QRCodeStyled from './components/SVGQRCodeStyled';
 import SVGGradient from './components/SVGGradient';
 import type { SVGQRCodeStyledProps } from './components/SVGQRCodeStyled';

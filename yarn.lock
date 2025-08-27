@@ -6852,6 +6852,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fast-text-encoding@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "fast-text-encoding@npm:1.0.6"
+  checksum: 9d58f694314b3283e785bf61954902536da228607ad246905e30256f9ab8331f780ac987e7222c9f5eafd04168d07e12b8054c85cedb76a2c05af0e82387a903
+  languageName: node
+  linkType: hard
+
 "fast-uri@npm:^3.0.1":
   version: 3.1.0
   resolution: "fast-uri@npm:3.1.0"
@@ -11323,7 +11330,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qrcode@npm:^1.5.4":
+"qrcode@npm:1.5.4":
   version: 1.5.4
   resolution: "qrcode@npm:1.5.4"
   dependencies:
@@ -11524,9 +11531,10 @@ __metadata:
     eslint: ^9.22.0
     eslint-config-prettier: ^10.1.1
     eslint-plugin-prettier: ^5.2.3
+    fast-text-encoding: ^1.0.6
     jest: ^29.7.0
     prettier: ^3.0.3
-    qrcode: ^1.5.4
+    qrcode: 1.5.4
     react: 19.0.0
     react-fast-compare: ^3.2.2
     react-native: 0.79.6
