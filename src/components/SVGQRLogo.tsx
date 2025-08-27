@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Image as SVGImage } from 'react-native-svg';
 
 import type { QRCodeErrorCorrectionLevel } from '../adapters/qrcode';

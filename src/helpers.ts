@@ -236,16 +236,16 @@ export function getRoundedOuterEyePathData(
       A${topLeftInnerR} ${topLeftInnerR} 0 0 1 ${pieceSize + topLeftInnerR} ${pieceSize}
       L${outerEyeSize - pieceSize - topRightInnerR} ${pieceSize}
       A${topRightInnerR} ${topRightInnerR} 0 0 1 ${outerEyeSize - pieceSize} ${
-      pieceSize + topRightInnerR
-    }
+        pieceSize + topRightInnerR
+      }
       L${outerEyeSize - pieceSize} ${outerEyeSize - pieceSize - bottomRightInnerR}
       A${bottomRightInnerR} ${bottomRightInnerR} 0 0 1 ${
-      outerEyeSize - pieceSize - bottomRightInnerR
-    } ${outerEyeSize - pieceSize}
+        outerEyeSize - pieceSize - bottomRightInnerR
+      } ${outerEyeSize - pieceSize}
       L${pieceSize + bottomLeftInnerR} ${outerEyeSize - pieceSize}
       A${bottomLeftInnerR} ${bottomLeftInnerR} 0 0 1 ${pieceSize} ${
-      outerEyeSize - pieceSize - bottomLeftInnerR
-    }
+        outerEyeSize - pieceSize - bottomLeftInnerR
+      }
       z
     `;
   }
@@ -263,18 +263,18 @@ export function getRoundedOuterEyePathData(
       z
       M${qrSize - outerEyeSize + pieceSize} ${pieceSize + topLeftInnerR}
       A${topLeftInnerR} ${topLeftInnerR} 0 0 1 ${
-      qrSize - outerEyeSize + pieceSize + topLeftInnerR
-    } ${pieceSize}
+        qrSize - outerEyeSize + pieceSize + topLeftInnerR
+      } ${pieceSize}
       L${qrSize - pieceSize - topRightInnerR} ${pieceSize}
       A${topRightInnerR} ${topRightInnerR} 0 0 1 ${qrSize - pieceSize} ${pieceSize + topRightInnerR}
       L${qrSize - pieceSize} ${outerEyeSize - pieceSize - bottomRightInnerR}
       A${bottomRightInnerR} ${bottomRightInnerR} 0 0 1 ${qrSize - pieceSize - bottomRightInnerR} ${
-      outerEyeSize - pieceSize
-    }
+        outerEyeSize - pieceSize
+      }
       L${qrSize - outerEyeSize + pieceSize + bottomLeftInnerR} ${outerEyeSize - pieceSize}
       A${bottomLeftInnerR} ${bottomLeftInnerR} 0 0 1 ${qrSize - outerEyeSize + pieceSize} ${
-      outerEyeSize - pieceSize - bottomLeftInnerR
-    }
+        outerEyeSize - pieceSize - bottomLeftInnerR
+      }
       z
     `;
   }
@@ -292,20 +292,20 @@ export function getRoundedOuterEyePathData(
       z
       M${pieceSize} ${qrSize - outerEyeSize + pieceSize + topLeftInnerR}
       A${topLeftInnerR} ${topLeftInnerR} 0 0 1 ${pieceSize + topLeftInnerR} ${
-      qrSize - outerEyeSize + pieceSize
-    }
+        qrSize - outerEyeSize + pieceSize
+      }
       L${outerEyeSize - pieceSize - topRightInnerR} ${qrSize - outerEyeSize + pieceSize}
       A${topRightInnerR} ${topRightInnerR} 0 0 1 ${outerEyeSize - pieceSize} ${
-      qrSize - outerEyeSize + pieceSize + topRightInnerR
-    }
+        qrSize - outerEyeSize + pieceSize + topRightInnerR
+      }
       L${outerEyeSize - pieceSize} ${qrSize - pieceSize - bottomRightInnerR}
       A${bottomRightInnerR} ${bottomRightInnerR} 0 0 1 ${
-      outerEyeSize - pieceSize - bottomRightInnerR
-    } ${qrSize - pieceSize}
+        outerEyeSize - pieceSize - bottomRightInnerR
+      } ${qrSize - pieceSize}
       L${pieceSize + bottomLeftInnerR} ${qrSize - pieceSize}
       A${bottomLeftInnerR} ${bottomLeftInnerR} 0 0 1 ${pieceSize} ${
-      qrSize - pieceSize - bottomLeftInnerR
-    }
+        qrSize - pieceSize - bottomLeftInnerR
+      }
       z
     `;
   }
@@ -371,8 +371,8 @@ export function getRoundedInnerEyePathData(
       A${topRightR} ${topRightR} 0 0 1 ${offset + innerSize} ${offset + topRightR}
       L${offset + innerSize} ${offset + innerSize - bottomRightR}
       A${bottomRightR} ${bottomRightR} 0 0 1 ${offset + innerSize - bottomRightR} ${
-      offset + innerSize
-    }
+        offset + innerSize
+      }
       L${offset + bottomLeftR} ${offset + innerSize} 
       A${bottomLeftR} ${bottomLeftR} 0 0 1 ${offset} ${offset + innerSize - bottomLeftR} z
     `;
@@ -388,8 +388,8 @@ export function getRoundedInnerEyePathData(
       A${bottomRightR} ${bottomRightR} 0 0 1 ${qrSize - offset - bottomRightR} ${offset + innerSize}
       L${qrSize - outerSize + offset + bottomLeftR} ${offset + innerSize} 
       A${bottomLeftR} ${bottomLeftR} 0 0 1 ${qrSize - outerSize + offset} ${
-      offset + innerSize - bottomLeftR
-    } z
+        offset + innerSize - bottomLeftR
+      } z
     `;
   }
 
@@ -399,8 +399,8 @@ export function getRoundedInnerEyePathData(
       A${topLeftR} ${topLeftR} 0 0 1 ${offset + topLeftR} ${qrSize - outerSize + offset}
       L${offset + innerSize - topRightR} ${qrSize - outerSize + offset}
       A${topRightR} ${topRightR} 0 0 1 ${offset + innerSize} ${
-      qrSize - outerSize + offset + topRightR
-    }
+        qrSize - outerSize + offset + topRightR
+      }
       L${offset + innerSize} ${qrSize - offset - bottomRightR}
       A${bottomRightR} ${bottomRightR} 0 0 1 ${offset + innerSize - bottomRightR} ${qrSize - offset}
       L${offset + bottomLeftR} ${qrSize - offset} 

@@ -1,4 +1,4 @@
-import QRC, { QRCodeOptions } from 'qrcode';
+import QRC, { type QRCodeOptions } from 'qrcode';
 
 import { transformBitArrayToMatrix } from '../helpers';
 import type { BitMatrix } from '../types';

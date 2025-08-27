@@ -1,4 +1,3 @@
-import React from 'react';
 import { RadialGradient, Stop } from 'react-native-svg';
 
 import type { GradientOrigin, RadialGradientProps } from '../types';

@@ -1,6 +1,4 @@
-import React from 'react';
-
-import { StyleSheet, Text, View, ViewProps } from 'react-native';
+import { StyleSheet, Text, View, type ViewProps } from 'react-native';
 
 interface ShadowProps extends ViewProps {
   title?: string;

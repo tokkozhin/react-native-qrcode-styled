@@ -6,12 +6,13 @@
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
+    "customConditions": ["react-native-strict-api"],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "lib": ["ESNext"],
     "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "bundler",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
@@ -23,6 +24,7 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "ESNext"
+    "target": "ESNext",
+    "verbatimModuleSyntax": true
   }
 }

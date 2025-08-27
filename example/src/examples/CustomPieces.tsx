@@ -1,11 +1,11 @@
-import React from 'react';
-
 import { StyleSheet } from 'react-native';
 import QRCodeStyled, {
   // isCoordsOfCornerDot,
   // isCoordsOfCornerSquare,
-  RenderCustomPieceItem,
-} from 'react-native-qrcode-styled';
+  // isCoordsOfCornerDot,
+  // isCoordsOfCornerSquare,
+  type RenderCustomPieceItem,
+} from '../../../src';
 import { Path } from 'react-native-svg';
 
 export default function CustomPieces() {

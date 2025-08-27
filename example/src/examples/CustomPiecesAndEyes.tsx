@@ -1,15 +1,13 @@
-import React from 'react';
-
 import { StyleSheet } from 'react-native';
 import QRCodeStyled, {
   INNER_EYE_SIZE_IN_BITS,
   isCoordsOfInnerEyes,
   isCoordsOfOuterEyes,
   OUTER_EYE_SIZE_IN_BITS,
-  RenderCustomPieceItem,
+  type RenderCustomPieceItem,
   SVGGradient,
-  SVGQRCodeStyledProps,
-} from 'react-native-qrcode-styled';
+  type SVGQRCodeStyledProps,
+} from '../../../src';
 import { Defs, G, Path } from 'react-native-svg';
 
 function circlePath(cx: number, cy: number, r: number): string {

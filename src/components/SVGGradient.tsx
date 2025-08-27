@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { GradientProps, GradientOrigin } from '../types';
 import SVGLinearGradient from './SVGLinearGradient';
 import SVGRadialGradient from './SVGRadialGradient';

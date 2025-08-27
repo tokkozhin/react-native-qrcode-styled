@@ -1,6 +1,5 @@
-import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import QRCodeStyled from 'react-native-qrcode-styled';
+import QRCodeStyled from '../../../src';
 
 export default function WithLogo() {
   return (

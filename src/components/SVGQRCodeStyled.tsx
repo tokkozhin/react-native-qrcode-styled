@@ -1,12 +1,12 @@
-import React, { ForwardedRef, forwardRef, useEffect, useMemo, useState } from 'react';
+import { type ForwardedRef, forwardRef, useEffect, useMemo, useState } from 'react';
 import {
   Svg,
   Defs,
   G,
-  SvgProps,
+  type SvgProps,
   ClipPath,
   Image as SVGImage,
-  ImageProps as SVGImageProps,
+  type ImageProps as SVGImageProps,
 } from 'react-native-svg';
 
 import type {

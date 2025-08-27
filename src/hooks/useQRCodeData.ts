@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 import type { BitMatrix } from '../types';
-import { createQRCode, QRCodeMessage, QRCodeOptions } from '../adapters/qrcode';
+import { createQRCode, type QRCodeMessage, type QRCodeOptions } from '../adapters/qrcode';
 import { consoleError } from '../helpers';
 
 export default function useQRCodeData(

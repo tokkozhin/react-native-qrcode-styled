@@ -1,12 +1,11 @@
 import { useRef } from 'react';
 
 import { StyleSheet, View, Pressable, Text, Alert } from 'react-native';
-import QRCodeStyled, { SVGGradient, SVGQRCodeStyledProps } from 'react-native-qrcode-styled';
+import QRCodeStyled, { SVGGradient, type SVGQRCodeStyledProps } from '../../../src';
 
 import * as FileSystem from 'expo-file-system';
 import * as MediaLibrary from 'expo-media-library';
 import { Defs, Rect } from 'react-native-svg';
-import React from 'react';
 // also need to add MEDIA_LIBRARY permission for android
 // https://docs.expo.dev/versions/latest/sdk/media-library/#configuration-in-appjsonappconfigjs
 
@@ -94,7 +93,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    width: '100%',
+    alignSelf: 'stretch',
     backgroundColor: 'black',
     padding: 16,
   },
