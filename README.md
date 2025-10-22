@@ -1,10 +1,12 @@
 <img src="https://raw.githubusercontent.com/tokkozhin/react-native-qrcode-styled/main/assets/library_logo.png" alt="React Native QR Code Styled" >
 
 ![npm](https://img.shields.io/npm/v/react-native-qrcode-styled?style=flat-square)
-![npm](https://img.shields.io/npm/dt/react-native-qrcode-styled?style=flat-square)
+![npm](https://img.shields.io/npm/dm/react-native-qrcode-styled?style=flat-square)
 ![github](https://img.shields.io/github/stars/tokkozhin/react-native-qrcode-styled?style=flat-square)
+![License](https://img.shields.io/npm/l/react-native-qrcode-styled?style=flat-square)
 ![Supports Android and iOS](https://img.shields.io/badge/platforms-android%20|%20ios-lightgrey.svg?style=flat-square)
 ![expo-compatible](https://img.shields.io/badge/Expo-compatible-9cf.svg?style=flat-square)
+
 
 # react-native-qrcode-styled
 
